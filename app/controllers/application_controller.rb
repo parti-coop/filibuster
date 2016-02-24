@@ -48,9 +48,9 @@ class ApplicationController < ActionController::Base
 
   def default_meta_options
     {
-      site_name: "필리버스터.미 고스톱",
-      title: "필리버스터.미 고스톱",
-      description: "현재 진행 중인 테러방지법 필리버스터에 대해 어떻게 생각하시나요?",
+      site_name: "Parti 유쾌한 민주주의 플랫폼",
+      title: "국민의 편지",
+      description: "국회의장님께 국민의 세가지 의견을 전하려 합니다",
       keywords: "테러방지법 필리버스터 국회",
       image: view_context.image_url("vote-anti-terror.png")
     }

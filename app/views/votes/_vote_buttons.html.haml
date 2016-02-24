@@ -1,26 +1,26 @@
 - if user_signed_in?
   %li
     = link_to opinion_votes_path(opinion, vote: {choice: :agree}), method: :post, class: 'btn btn-info btn-lg', style: 'min-width: 100px;', remote: true do
-      고할까요?
+      찬성
       %br
       %i.fa.fa-thumbs-up
       %strong= opinion.votes.agreed.count
   %li
     = link_to opinion_votes_path(opinion, vote: {choice: :disagree}), method: :post, class: 'btn btn-danger btn-lg', style: 'min-width: 100px;', remote: true do
-      스톱할까요?
+      반대
       %br
       %i.fa.fa-ban
       %strong= opinion.votes.disagreed.count
 - else
   %li
     = link_to new_user_session_path, class: 'btn btn-info btn-lg', style: 'min-width: 100px;' do
-      고할까요?
+      찬성
       %br
       %i.fa.fa-thumbs-up
       %strong= opinion.votes.agreed.count
   %li
     = link_to new_user_session_path, class: 'btn btn-danger btn-lg', style: 'min-width: 100px;' do
-      스톱할까요?
+      반대
       %br
       %i.fa.fa-ban
       %strong= opinion.votes.disagreed.count

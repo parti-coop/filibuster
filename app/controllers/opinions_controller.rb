@@ -3,7 +3,7 @@ class OpinionsController < ApplicationController
   before_filter :authorize, except: [:show, :index]
   def index
     @opinions = Opinion.all
-    prepare_meta_tags title: "선택", description: "당신의 선택은?"
+    prepare_meta_tags title: "국민의 편지"
   end
 
   def new
