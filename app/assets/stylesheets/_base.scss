@@ -1,0 +1,76 @@
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-jp.css);
+
+$fallback: Sans-serif;
+
+* {
+  font-family: $fallback;
+  .wf-active & {
+    font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
+  }
+}
+
+body {
+  padding-top: 4em;
+}
+
+a.anchor {
+    display: block;
+    position: relative;
+    top: -80px;
+    visibility: hidden;
+}
+
+.brand {
+  margin-bottom: 1em;
+  #logo {
+    width: 60px;
+    margin: 0 1em 1em 0;
+  }
+  h2 {
+    margin-top: 10px;
+  }
+}
+
+.container {
+  max-width: 768px !important;
+}
+
+.panel {
+  border-radius: 0px;
+  transition: all 0.1s;
+  &:hover {
+    box-shadow: 0 1px 15px rgba(0, 0, 0, 0.20);
+  }
+}
+
+ul.list-pipeline li:not(:last-child) {
+    border-right:0.2em solid #eee;
+    margin-right:1em;
+    padding-right:1em;
+}
+
+.jumbotron-transparent {
+  background: none;
+  border: none;
+}
+
+.navbar-toggle.offcanvas-toggle {
+  display: block;
+}
+
+.user-image {
+  width: 20px;
+  height: 20px;
+
+  h3 & {
+    max-width: 30px;
+    max-height: 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .masonry-container .post {
+    width: 100%;
+  }
+}

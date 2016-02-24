@@ -1,0 +1,12 @@
+.well
+  = form_for @opinion do |f|
+    .form-group.form-group-lg
+      = f.label :title
+      = f.text_field :title, class: 'form-control input-lg'
+    .form-group.form-group-lg
+      = f.label :body
+      = f.text_area :body, class: 'form-control input-lg'
+
+    .row
+      .col-md-12
+        = f.submit '저장', class: 'btn btn-primary'
