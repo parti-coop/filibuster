@@ -4,7 +4,7 @@
 //= require jssocials
 
 $(function(){
-  $("#share").jsSocials({
+  $(".share").jsSocials({
     showCount: true,
     showLabel: false,
     shares: ["facebook", "googleplus", "twitter"]

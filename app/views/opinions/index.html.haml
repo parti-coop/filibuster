@@ -1,2 +1,3 @@
-- @opinions.each do |opinion|
-  = render 'opinion_header', opinion: opinion
+#opinions
+  - @opinions.each do |opinion|
+    = render 'opinion_header', opinion: opinion

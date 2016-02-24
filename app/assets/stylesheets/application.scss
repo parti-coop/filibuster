@@ -25,7 +25,13 @@ body {
   }
 }
 
-#share {
+#opinions{
+  .share {
+    display: none;
+  }
+}
+
+.share {
   margin-bottom: 20px;
 }
 
