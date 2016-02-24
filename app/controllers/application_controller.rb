@@ -52,7 +52,7 @@ class ApplicationController < ActionController::Base
       title: "국민의 편지",
       description: "국회의장님께 국민의 세가지 의견을 전하려 합니다",
       keywords: "테러방지법 필리버스터 국회",
-      image: view_context.image_url("vote-anti-terror.png")
+      image: view_context.image_url("sns_toyou.png")
     }
   end
 

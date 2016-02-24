@@ -19,5 +19,10 @@
   %body
     = render 'header'
     = yield
+    .container
+      .text-center
+        %p{style: 'color: #fff;'} presented by
+        %a{href: 'http://parti.xyz', target: '_blank'}
+          %img{src: image_path('logo_parti_slogan_white.png'), style: 'width: 400px; margin-bottom: 30px' }
     = javascript_include_tag 'application'
 

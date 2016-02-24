@@ -7,13 +7,12 @@
 @import "jssocials-theme-flat";
 
 body {
-  background-image: asset_url('backimg.png');
-  background-size: cover;
-  background-position: center center;
+  background-color: #002436;
 }
 
 .jumbotron-transparent {
   background: transparent;
+  padding-bottom: 0;
 
   h1 {
     color: white;

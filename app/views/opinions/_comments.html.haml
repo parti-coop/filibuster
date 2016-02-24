@@ -25,7 +25,7 @@
         - unless user_signed_in?
           .well
             %i.fa.fa-info-circle
-            의견을 남기시려면 로그인하세요
+            의견을 남기시려면 #{content_tag(:a, "로그인", href: '/users/sign_in')}하세요
         = render opinion.comments.agreed.recent
       .tab-pane#disagree{class: ('active' if user_signed_in? and opinion.disagreed_by? current_user) }
         - if user_signed_in? and opinion.disagreed_by? current_user

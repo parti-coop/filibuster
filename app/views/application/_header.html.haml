@@ -1,15 +1,21 @@
 .container
   .jumbotron.jumbotron-transparent
-    %h1.text-center
-      %a{href: "/", style: "color: #fff;"} 국민의 편지
-    %p.text-center 국회의장님께 국민의 세가지 의견을 전하려 합니다.
-    .sign-in.text-right
-      - if user_signed_in?
-        = link_to destroy_user_session_path, method: :delete do
-          %i.fa.fa-sign-out
-          로그아웃
-      - else
-        = link_to new_user_session_path do
-          %i.fa.fa-sign-in
-          로그인
+    .text-center
+      %a{href: "/"}
+        %img{src: image_path('toyou.png'), style: 'max-width: 100%;'}
+      %p &nbsp;
+      .sign-in.text-right
+        - if user_signed_in?
+          = link_to destroy_user_session_path, method: :delete, style: 'color: #fff' do
+            %i.fa.fa-sign-out
+            로그아웃
+        - else
+          = link_to new_user_session_path, class: 'sr-only' do
+            %i.fa.fa-sign-in
+            로그인
+    .sr-only
+      %h1.text-center
+        %a{href: "/", style: "color: #fff;"} 국민의 편지
+      %p.text-center 국회의장님께 국민의 세가지 의견을 전하려 합니다.
+
 
