@@ -13,20 +13,25 @@
         - if user_signed_in?
           = link_to opinion_votes_path(opinion, vote: {choice: :agree}), method: :post, class: 'btn btn-info btn-lg', style: 'min-width: 100px;' do
             %i.fa.fa-thumbs-up
-            고
+            고할까요?
             %br
             %strong= opinion.votes.agreed.count
           = link_to opinion_votes_path(opinion, vote: {choice: :disagree}), method: :post, class: 'btn btn-danger btn-lg', style: 'min-width: 100px;' do
             %i.fa.fa-ban
-            스톱
+            스톱할까요?
             %br
             %strong= opinion.votes.disagreed.count
         - else
-          %i.fa.fa-caret-up.fa-2x
-          = opinion.votes.agreed.count
-          %i.fa.fa-caret-down.fa-2x
-          = opinion.votes.disagreed.count
-
+          = link_to new_user_session_path, method: :post, class: 'btn btn-info btn-lg', style: 'min-width: 100px;' do
+            %i.fa.fa-thumbs-up
+            고할까요?
+            %br
+            %strong= opinion.votes.agreed.count
+          = link_to new_user_session_path, method: :post, class: 'btn btn-danger btn-lg', style: 'min-width: 100px;' do
+            %i.fa.fa-ban
+            스톱할까요?
+            %br
+            %strong= opinion.votes.disagreed.count
       - unless @opinion
         .btns
-          = link_to '더보기', opinion, class: 'btn btn-block btn-default'
+          = link_to "#{opinion.comments.count}개의 의견 보기", opinion, class: 'btn btn-block btn-primary'

@@ -9,3 +9,16 @@ body {
   background-size: cover;
   background-position: center center;
 }
+
+.jumbotron-transparent {
+  background: transparent;
+
+  h1 {
+    color: white;
+    text-shadow: 0 2px 2px #000;
+  }
+
+  p {
+    color: white;
+  }
+}
