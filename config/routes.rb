@@ -3,8 +3,11 @@ Rails.application.routes.draw do
   root 'opinions#index'
 
   resources :opinions do
+    member do
+      patch :agree
+      patch :disagree
+    end
     shallow do
-      resources :votes
       resources :comments
     end
   end

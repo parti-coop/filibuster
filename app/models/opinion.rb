@@ -3,6 +3,10 @@ class Opinion < ActiveRecord::Base
   has_many :votes
   has_many :comments
 
+  def votes_count
+    agree_count + disagree_count
+  end
+
   def voted_by voter
     votes.where(user: voter).first
   end

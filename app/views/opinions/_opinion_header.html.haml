@@ -9,7 +9,7 @@
           “#{opinion.title}”
       .votes.text-center{  style:'margin: 40px 0' }
         %p
-          %strong= opinion.votes.count
+          %strong= opinion.votes_count
           명이 투표했습니다.
         %ul.list-inline{id: "#{dom_id(opinion)}__vote_buttons" }
           = render 'votes/vote_buttons', opinion: opinion
