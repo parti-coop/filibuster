@@ -3,6 +3,7 @@ class OpinionsController < ApplicationController
   before_filter :authorize, except: [:show, :index]
   def index
     @opinions = Opinion.all
+    prepare_meta_tags title: "선택", description: "당신의 선택은?"
   end
 
   def new
@@ -40,6 +41,7 @@ class OpinionsController < ApplicationController
 
   def show
     @opinion = Opinion.find params[:id]
+    prepare_meta_tags title: @opinion.title, description: @opinion.body
   end
 
   private

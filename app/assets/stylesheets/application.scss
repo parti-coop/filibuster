@@ -3,6 +3,8 @@
 @import "variables";
 @import "bootstrap";
 @import "base";
+@import "jssocials";
+@import "jssocials-theme-flat";
 
 body {
   background-image: asset_url('backimg.png');
@@ -20,5 +22,16 @@ body {
 
   p {
     color: white;
+  }
+}
+
+#share {
+  margin-bottom: 20px;
+}
+
+.jssocials-share-count-box {
+  height: 2em;
+  .jssocials-share-count {
+    line-height: 2.2em;
   }
 }
