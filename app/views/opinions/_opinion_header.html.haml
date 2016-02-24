@@ -10,28 +10,33 @@
         %p
           %strong= opinion.votes.count
           명이 투표했습니다.
-        - if user_signed_in?
-          = link_to opinion_votes_path(opinion, vote: {choice: :agree}), method: :post, class: 'btn btn-info btn-lg', style: 'min-width: 100px;' do
-            고할까요?
-            %br
-            %i.fa.fa-thumbs-up
-            %strong= opinion.votes.agreed.count
-          = link_to opinion_votes_path(opinion, vote: {choice: :disagree}), method: :post, class: 'btn btn-danger btn-lg', style: 'min-width: 100px;' do
-            스톱할까요?
-            %br
-            %i.fa.fa-ban
-            %strong= opinion.votes.disagreed.count
-        - else
-          = link_to new_user_session_path, method: :post, class: 'btn btn-info btn-lg', style: 'min-width: 100px;' do
-            고할까요?
-            %br
-            %i.fa.fa-thumbs-up
-            %strong= opinion.votes.agreed.count
-          = link_to new_user_session_path, method: :post, class: 'btn btn-danger btn-lg', style: 'min-width: 100px;' do
-            스톱할까요?
-            %br
-            %i.fa.fa-ban
-            %strong= opinion.votes.disagreed.count
+        %ul.list-inline
+          - if user_signed_in?
+            %li
+              = link_to opinion_votes_path(opinion, vote: {choice: :agree}), method: :post, class: 'btn btn-info btn-lg', style: 'min-width: 100px;' do
+                고할까요?
+                %br
+                %i.fa.fa-thumbs-up
+                %strong= opinion.votes.agreed.count
+            %li
+              = link_to opinion_votes_path(opinion, vote: {choice: :disagree}), method: :post, class: 'btn btn-danger btn-lg', style: 'min-width: 100px;' do
+                스톱할까요?
+                %br
+                %i.fa.fa-ban
+                %strong= opinion.votes.disagreed.count
+          - else
+            %li
+              = link_to new_user_session_path, method: :post, class: 'btn btn-info btn-lg', style: 'min-width: 100px;' do
+                고할까요?
+                %br
+                %i.fa.fa-thumbs-up
+                %strong= opinion.votes.agreed.count
+            %li
+              = link_to new_user_session_path, method: :post, class: 'btn btn-danger btn-lg', style: 'min-width: 100px;' do
+                스톱할까요?
+                %br
+                %i.fa.fa-ban
+                %strong= opinion.votes.disagreed.count
       - unless @opinion
         .btns
           = link_to "#{opinion.comments.count}개의 의견 보기", opinion, class: 'btn btn-block btn-primary'
