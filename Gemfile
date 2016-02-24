@@ -35,6 +35,7 @@ gem 'bootstrap-sass', '~> 3.3', '>= 3.3.5.1'
 gem 'bootswatch-rails'
 gem 'haml-rails', '~> 0.9.0'
 gem 'redactor-rails'
+gem 'rails-i18n'
 
 # tool
 gem 'envyable', '~> 0.2.0'
