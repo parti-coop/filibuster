@@ -1,6 +1,6 @@
 class OpinionsController < ApplicationController
   before_filter :authenticate_user!, except: [:show, :index]
-
+  before_filter :authorize, except: [:show, :index]
   def index
     @opinions = Opinion.all
   end
@@ -43,6 +43,12 @@ class OpinionsController < ApplicationController
   end
 
   private
+
+  def authorize
+    unless current_user.try(:is_admin?)
+      redirect_to root_path
+    end
+  end
 
   def opinion_params
     params.require(:opinion).permit(:title, :body)

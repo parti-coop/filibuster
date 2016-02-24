@@ -1,8 +1,9 @@
 .opinion-header[opinion]
   .container
     .jumbotron
-      .pull-right
-        = link_to '삭제', opinion, method: :delete, data: { confirm: '삭제하시겠습니까?'}
+      - if current_user.try(:is_admin?)
+        .pull-right
+          = link_to '삭제', opinion, method: :delete, data: { confirm: '삭제하시겠습니까?'}
       %h2.text-center
         = link_to opinion do
           “#{opinion.title}”
