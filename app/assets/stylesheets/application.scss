@@ -3,3 +3,9 @@
 @import "variables";
 @import "bootstrap";
 @import "base";
+
+body {
+  background-image: asset_url('backimg.png');
+  background-size: cover;
+  background-position: center center;
+}

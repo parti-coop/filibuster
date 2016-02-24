@@ -1,0 +1,32 @@
+.opinion-header[opinion]
+  .container
+    .jumbotron
+      .pull-right
+        = link_to '삭제', opinion, method: :delete, data: { confirm: '삭제하시겠습니까?'}
+      %h2.text-center
+        = link_to opinion do
+          “#{opinion.title}”
+      .votes.text-center{  style:'margin: 40px 0' }
+        %p
+          %strong= opinion.votes.count
+          명이 투표했습니다.
+        - if user_signed_in?
+          = link_to opinion_votes_path(opinion, vote: {choice: :agree}), method: :post, class: 'btn btn-info btn-lg', style: 'min-width: 100px;' do
+            %i.fa.fa-thumbs-up
+            고
+            %br
+            %strong= opinion.votes.agreed.count
+          = link_to opinion_votes_path(opinion, vote: {choice: :disagree}), method: :post, class: 'btn btn-danger btn-lg', style: 'min-width: 100px;' do
+            %i.fa.fa-ban
+            스톱
+            %br
+            %strong= opinion.votes.disagreed.count
+        - else
+          %i.fa.fa-caret-up.fa-2x
+          = opinion.votes.agreed.count
+          %i.fa.fa-caret-down.fa-2x
+          = opinion.votes.disagreed.count
+
+      - unless @opinion
+        .btns
+          = link_to '더보기', opinion, class: 'btn btn-block btn-default'

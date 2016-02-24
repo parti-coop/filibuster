@@ -17,7 +17,7 @@ class OpinionsController < ApplicationController
     @opinion = Opinion.new(opinion_params)
     @opinion.user = current_user
     if @opinion.save
-      redirect_to @opinion
+      redirect_to root_path
     else
       render 'new'
     end
@@ -26,7 +26,7 @@ class OpinionsController < ApplicationController
   def update
     @opinion = Opinion.find params[:id]
     if @opinion.update_attributes(opinion_params)
-      redirect_to @opinion
+      redirect_to root_path
     else
       render 'edit'
     end

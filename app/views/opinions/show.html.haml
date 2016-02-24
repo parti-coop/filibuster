@@ -1,19 +1,20 @@
-= @opinion.title
+= render 'opinion_header', opinion: @opinion
 
-= link_to '삭제', @opinion, method: :delete, data: { confirm: '삭제하시겠습니까?'}
+.container
+  .jumbotron
+    .comments
+      - if user_signed_in?
+        - if @opinion.voted_by? current_user
+          = form_for [@opinion, Comment.new] do |f|
+            .form-group
+              %p.help-block 의견을 남겨주세요
+              = f.text_area :body, class: 'form-control'
+            .form-group
+              = f.submit '저장', class: 'btn btn-primary btn-block'
+        - else
+          투표해야 의견을 남길 수 있습니다.
+      - else
+        로그인하세요
 
-
-
-- if user_signed_in?
-  - if @opinion.voted_by? current_user
-    = form_for [@opinion, Comment.new] do |f|
-      = f.text_area :body
-      = f.submit '저장'
-  - else
-    투표해야 의견을 남길 수 있습니다.
-- else
-  로그인하세요
-
-- @opinion.comments.each do |comment|
-  = comment.body
+      = render @opinion.comments
 

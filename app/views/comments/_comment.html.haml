@@ -1,0 +1,11 @@
+.comment[comment]
+  %hr
+  %h5
+    %strong
+      - if comment.choice == 'agree'
+        %i.fa.fa-thumbs-up.fa-fw
+      - else
+        %i.fa.fa-ban.fa-fw
+    = comment.user.email
+    %small= l comment.created_at
+  %div= simple_format comment.body, {}, wrapper_tag: 'div'
