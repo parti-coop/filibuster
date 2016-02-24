@@ -50,7 +50,7 @@ class ApplicationController < ActionController::Base
     {
       site_name: "Parti 유쾌한 민주주의 플랫폼",
       title: "국민의 편지",
-      description: "3월 14일 <3 국회의장에게 국민의 세가지 의견을 전하려 합니다.",
+      description: "3월 14일, 국회의장에게 국민의 세가지 의견을 전하려 합니다.",
       keywords: "테러방지법 필리버스터 국회",
       image: view_context.image_url("sns_toyou.png")
     }
