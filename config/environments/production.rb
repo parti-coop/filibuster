@@ -78,5 +78,5 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 end
 
-Rails.application.routes.default_url_options[:host] = 'vote.filibuster.me'
+Rails.application.routes.default_url_options[:host] = 'anti-terrorism-act.parti.xyz'
 
