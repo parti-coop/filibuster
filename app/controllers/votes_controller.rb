@@ -13,7 +13,10 @@ class VotesController < ApplicationController
     end
 
     @vote.save
-    redirect_to root_path
+
+    respond_to do |format|
+      format.js
+    end
   end
 
   private

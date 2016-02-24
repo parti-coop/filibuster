@@ -9,10 +9,10 @@
     .sign-in.text-right
       - if user_signed_in?
         = link_to destroy_user_session_path, method: :delete do
-          %i.fa.fa-sign-in
-          로그인
-      - else
-        = link_to new_user_session_path do
           %i.fa.fa-sign-out
           로그아웃
+      - else
+        = link_to new_user_session_path do
+          %i.fa.fa-sign-in
+          로그인
 
