@@ -1,0 +1,19 @@
+ko:
+  errors:
+    messages:
+      not_saved: 저장되지 않았습니다
+      blank: 값을 입력해 주세요
+      taken: 이미 사용 중 입니다
+  activerecord:
+    models:
+      opinion: 질문
+      comment: 의견
+      user: 회원
+    attributes:
+      user:
+        email: 이메일
+        password: 비밀번호
+        nickname: ID
+        password_confirmation: 비밀번호 확인
+        remember_me: 로그인 상태를 유지
+        current_password: 현재 비밀번호

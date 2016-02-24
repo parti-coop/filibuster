@@ -1,0 +1,9 @@
+%div(style='margin-top: 20px')
+  - if controller_name != 'sessions'
+    = link_to new_session_path(resource_name) do
+      %i.fa.fa-sign-in
+      로그인
+  - if devise_mapping.registerable? && controller_name != 'registrations'
+    = link_to new_registration_path(resource_name) do
+      %i.fa.fa-user-plus
+      가입

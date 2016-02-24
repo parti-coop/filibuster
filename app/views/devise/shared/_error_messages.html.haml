@@ -1,0 +1,6 @@
+.alert.alert-success
+  %strong 오류
+  - resource.errors.full_messages.each do |message|
+    %p
+      %i.fa.fa-check
+      = message
