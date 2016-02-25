@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   def create
     @opinion = Opinion.find params[:opinion_id]
     @comment = @opinion.comments.build(comment_params)
-    voted_opinions = JSON.parse(cookies[:voted_opinions] || "{}")
+    voted_opinions = JSON.parse(cookies[:voted_opinions_x] || "{}")
     @comment.choice = voted_opinions[@opinion.id.to_s]
 
     if !@comment.save

@@ -55,7 +55,7 @@ class OpinionsController < ApplicationController
   private
 
   def vote(choice)
-    cookie_voted_opinions = cookies[:voted_opinions]
+    cookie_voted_opinions = cookies[:voted_opinions_x]
     voted_opinions = {}
     if cookie_voted_opinions.present?
       voted_opinions = JSON.parse(cookie_voted_opinions)
@@ -64,7 +64,7 @@ class OpinionsController < ApplicationController
     @opinion = Opinion.find params[:id]
     unless voted_opinions.has_key?(params[:id])
       voted_opinions[params[:id]]= choice
-      cookies[:voted_opinions] = JSON.generate(voted_opinions)
+      cookies[:voted_opinions_x] = JSON.generate(voted_opinions)
       @opinion.send("#{choice}_count=", (@opinion.send("#{choice}_count") + 1))
       @opinion.save
     end
