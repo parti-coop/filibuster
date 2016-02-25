@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
+  before_action :prepare_meta_tags, if: "request.get?", only: :show
 
   def prepare_meta_tags(options={})
     set_meta_tags build_meta_options(options)
@@ -30,7 +31,7 @@ class ApplicationController < ActionController::Base
       canonical:   current_url,
       twitter: {
         site_name: options[:site_name],
-        site: '@parti_xyz',
+        site: '',
         card: 'summary',
         description: twitter_description(options),
         image: view_context.asset_url(options[:image])
@@ -48,7 +49,7 @@ class ApplicationController < ActionController::Base
 
   def default_meta_options
     {
-      site_name: "Parti 유쾌한 민주주의 플랫폼",
+      site_name: "국민의 편지",
       title: "국민의 편지",
       description: "3월 14일, 국회의장에게 국민의 세가지 의견을 전하려 합니다.",
       keywords: "테러방지법 필리버스터 국회",
