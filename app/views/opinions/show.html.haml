@@ -1,28 +1,2 @@
 = render 'opinion_header', opinion: @opinion
-
-.container
-  .jumbotron
-    .comments
-      = form_for [@opinion, Comment.new] do |f|
-        %p.help-block 의견을 남겨주세요
-        - if flash.any?
-          .alert.alert-success
-            - flash.each do |name, msg|
-              %p
-                %i.fa.fa-check
-                = msg.to_s
-        .form-group
-          .row
-            .col-xs-6
-              = f.label :name, '이름 *'
-              = f.text_field :name, class: 'form-control'
-            .col-xs-6
-              = f.label :email, '이메일'
-              = f.text_field :email, class: 'form-control'
-        .form-group
-          = f.label :body, '내용 *'
-          = f.text_area :body, class: 'form-control'
-        .form-group
-          = f.submit '저장', class: 'btn btn-primary btn-block'
-
-      = render @opinion.comments.recent
+= render 'comments', opinion: @opinion

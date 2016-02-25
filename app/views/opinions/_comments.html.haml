@@ -1,0 +1,28 @@
+.container
+  .jumbotron
+    %ul.nav.nav-tabs
+      %li.text-center{class: ('active' unless disagreed? opinion), style: 'width: 50%' }
+        %a(href="#agree" role="tab" data-toggle="tab")
+          %strong 찬성 의견(#{opinion.comments.agreed.count})
+      %li.text-center{class: ('active' if disagreed? opinion), style: 'width: 50%' }
+        %a(href="#disagree" role="tab" data-toggle="tab")
+          %strong 반대 의견(#{opinion.comments.disagreed.count})
+    .tab-content
+      .tab-pane#agree{class: ('active' unless disagreed? opinion) }
+        - if agreed? opinion
+          %div(style='padding: 20px 0;')
+            = render 'comments/form', opinion: opinion
+        - else
+          .well
+            %i.fa.fa-info-circle
+            투표 후에 의견을 남길 수 있습니다.
+        = render opinion.comments.agreed.recent
+      .tab-pane#disagree{class: ('active' if disagreed? opinion) }
+        - if disagreed? opinion
+          %div(style='padding: 20px 0;')
+            = render 'comments/form', opinion: opinion
+        - else
+          .well
+            %i.fa.fa-info-circle
+            투표 후에 의견을 남길 수 있습니다.
+        = render opinion.comments.disagreed.recent

@@ -55,22 +55,23 @@ class OpinionsController < ApplicationController
   private
 
   def vote(choice)
-    cookie_voted_opinions = cookies.signed[:voted_opinions]
-    voted_opinions = []
+    cookie_voted_opinions = cookies[:voted_opinions]
+    voted_opinions = {}
     if cookie_voted_opinions.present?
       voted_opinions = JSON.parse(cookie_voted_opinions)
     end
 
     @opinion = Opinion.find params[:id]
-    unless voted_opinions.include?(params[:id])
-      voted_opinions << params[:id]
-      cookies.signed[:voted_opinions] = JSON.generate(voted_opinions)
+    unless voted_opinions.has_key?(params[:id])
+      voted_opinions[params[:id]]= choice
+      cookies[:voted_opinions] = JSON.generate(voted_opinions)
       @opinion.send("#{choice}_count=", (@opinion.send("#{choice}_count") + 1))
       @opinion.save
     end
 
     respond_to do |format|
       format.js
+      format.html { redirect_to opinion_path(@opinion, anchor: 'comments')}
     end
   end
 

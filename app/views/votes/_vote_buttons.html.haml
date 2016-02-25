@@ -1,11 +1,12 @@
+- is_remote = @opinion.blank?
 %li
-  = link_to agree_opinion_path(opinion), method: :patch, class: 'btn btn-info btn-lg', style: 'min-width: 100px;', remote: true do
+  = link_to agree_opinion_path(opinion), method: :patch, class: 'btn btn-info btn-lg', style: 'min-width: 100px;', remote: is_remote do
     찬성
     %br
     %i.fa.fa-thumbs-up
     %strong= opinion.agree_count
 %li
-  = link_to disagree_opinion_path(opinion), method: :patch, class: 'btn btn-danger btn-lg', style: 'min-width: 100px;', remote: true do
+  = link_to disagree_opinion_path(opinion), method: :patch, class: 'btn btn-danger btn-lg', style: 'min-width: 100px;', remote: is_remote do
     반대
     %br
     %i.fa.fa-ban
