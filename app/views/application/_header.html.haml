@@ -4,6 +4,10 @@
       %a{href: "/"}
         %img{src: image_path('toyou.png'), style: 'max-width: 100%;'}
       %p &nbsp;
+      %p.lead
+        = link_to 'https://www.facebook.com/JusticeHwa', target: '_blank', style: 'color: white; font-weight: bold; text-decoration: underline; ' do
+          %i.fa.fa-facebook
+          정의화 국회의장 페이스북 방문하기
       .sign-in.text-right
         - if user_signed_in?
           = link_to destroy_user_session_path, method: :delete, style: 'color: #fff' do
@@ -17,5 +21,3 @@
       %h1.text-center
         %a{href: "/", style: "color: #fff;"} 국민의 편지
       %p.text-center 국회의장님께 국민의 세가지 의견을 전하려 합니다.
-
-
