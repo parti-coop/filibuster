@@ -41,7 +41,7 @@ class OpinionsController < ApplicationController
 
   def show
     @opinion = Opinion.find params[:id]
-    prepare_meta_tags title: @opinion.title, description: @opinion.body, image: "images/sns_toyou_opinion_2-#{@opinion.id}.png"
+    prepare_meta_tags title: @opinion.title, description: @opinion.body
   end
 
   def agree
