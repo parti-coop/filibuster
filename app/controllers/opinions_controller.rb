@@ -42,6 +42,13 @@ class OpinionsController < ApplicationController
   def show
     @opinion = Opinion.find params[:id]
     prepare_meta_tags title: @opinion.title, description: @opinion.body
+    unless params[:v].present?
+      if(disagreed? @opinion)
+        params[:v] = 'disagree'
+      else
+        params[:v] = 'agree'
+      end
+    end
   end
 
   def agree

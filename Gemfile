@@ -15,6 +15,7 @@ gem 'acts-as-taggable-on', '~> 3.5'
 gem 'recursive-open-struct', '~> 1.0', '>= 1.0.1'
 gem 'time_difference', '~> 0.4.2'
 gem 'by_star', '~> 2.2', '>= 2.2.1'
+gem 'kaminari', '~> 0.16.3'
 
 # auth
 gem 'cancancan', '~> 1.10'
@@ -36,6 +37,7 @@ gem 'bootswatch-rails'
 gem 'haml-rails', '~> 0.9.0'
 gem 'redactor-rails'
 gem 'rails-i18n'
+gem 'bootstrap-kaminari-views', '~> 0.0.5'
 
 # tool
 gem 'envyable', '~> 0.2.0'

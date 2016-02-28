@@ -1,14 +1,15 @@
+- current_params = params.except(:v, :action, :controller)
 .container
   .jumbotron
     %ul.nav.nav-tabs
-      %li.text-center{class: ('active' unless disagreed? opinion), style: 'width: 50%' }
-        %a(href="#agree" role="tab" data-toggle="tab")
+      %li.text-center{class: ('active' if params[:v] == 'agree'), style: 'width: 50%' }
+        = link_to url_for(current_params.merge(v: :agree)) do
           %strong 찬성 의견(#{opinion.comments.agreed.count})
-      %li.text-center{class: ('active' if disagreed? opinion), style: 'width: 50%' }
-        %a(href="#disagree" role="tab" data-toggle="tab")
+      %li.text-center{class: ('active' if params[:v] == 'disagree'), style: 'width: 50%' }
+        = link_to url_for(current_params.merge(v: :disagree)) do
           %strong 반대 의견(#{opinion.comments.disagreed.count})
     .tab-content
-      .tab-pane#agree{class: ('active' unless disagreed? opinion) }
+      .tab-pane#agree{class: ('active' if params[:v] == 'agree') }
         - if agreed? opinion
           %div(style='padding: 20px 0;')
             = render 'comments/form', opinion: opinion
@@ -16,8 +17,11 @@
           .well
             %i.fa.fa-info-circle
             투표 후에 의견을 남길 수 있습니다.
-        = render opinion.comments.agreed.recent
-      .tab-pane#disagree{class: ('active' if disagreed? opinion) }
+        - comments = opinion.comments.agreed.recent.page(params[:page])
+        = render comments
+        .text-center
+          = paginate comments, theme: 'twitter-bootstrap-3'
+      .tab-pane#disagree{class: ('active' if params[:v] == 'disagree') }
         - if disagreed? opinion
           %div(style='padding: 20px 0;')
             = render 'comments/form', opinion: opinion
@@ -25,4 +29,7 @@
           .well
             %i.fa.fa-info-circle
             투표 후에 의견을 남길 수 있습니다.
-        = render opinion.comments.disagreed.recent
+        - comments = opinion.comments.disagreed.recent.page(params[:page])
+        = render comments
+        .text-center
+          = paginate comments, theme: 'twitter-bootstrap-3'
