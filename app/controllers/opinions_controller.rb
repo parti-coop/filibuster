@@ -2,7 +2,7 @@ class OpinionsController < ApplicationController
   before_filter :authenticate_user!, except: [:show, :index, :agree, :disagree]
   before_filter :authorize, except: [:show, :index, :agree, :disagree]
   def index
-    @opinions = Opinion.all
+    @opinions = Opinion.order("id desc")
     prepare_meta_tags title: "국민의 편지"
   end
 
@@ -41,7 +41,7 @@ class OpinionsController < ApplicationController
 
   def show
     @opinion = Opinion.find params[:id]
-    prepare_meta_tags title: @opinion.title, description: @opinion.body
+    prepare_meta_tags title: @opinion.title, description: @opinion.body, image: "images/sns_toyou_opinion_#{@opinion.id}.png"
   end
 
   def agree
